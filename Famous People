@@ -1,0 +1,27 @@
+/* Famous People */
+CREATE TABLE Stars (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER, movies_in INTEGER);
+
+INSERT INTO Stars VALUES(1, "Johnny Cage", 37, 45);
+INSERT INTO Stars VALUES(2, "Tony Montana", 40, 28);
+INSERT INTO Stars VALUES(3, "Albert Pujols", 43, 5);
+INSERT INTO Stars VALUES(4, "Richard Petty", 74, 40);
+INSERT INTO Stars VALUES(5, "Tom Cruise", 50, 100);
+
+CREATE TABLE Hobbies (id INTEGER PRIMARY KEY, name TEXT, minuets_spent INTEGER);
+
+INSERT INTO Hobbies VALUES(1, "Reading Script", 60);
+INSERT INTO Hobbies VALUES(2, "Reading Script", 20);
+INSERT INTO Hobbies VALUES(5, "Exercise", 200);
+INSERT INTO Hobbies VALUES(3, "Baseball", 1000);
+INSERT INTO Hobbies VALUES(4, "Racing Cars", 300);
+
+
+SELECT name,age,movies_in FROM Stars;
+SELECT AVG(movies_in) FROM Stars;
+SELECT AVG(age) FROM Stars;
+SELECT name, age, movies_in FROM Stars WHERE movies_in >43.6 AND age >48.8;
+
+
+SELECT s.name AS Star, h.name AS Hobby, h.minuets_spent AS Minuets_per_day FROM Stars s
+JOIN Hobbies h
+ON s.id=h.id;
